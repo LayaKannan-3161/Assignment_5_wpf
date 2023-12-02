@@ -8,7 +8,7 @@ using System.Windows.Media;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Assignment_5
+namespace Assignment_5_wpf
 {
     public partial class MainWindow : Window
     {
@@ -166,17 +166,30 @@ namespace Assignment_5
                 UpdateDataGrid();
                 return;
             }
-            var searchResults = buildings.Where(b => b.Name.Contains(searchKey, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            var searchResults = buildings
+                .Where(b => b.Name.Contains(searchKey, StringComparison.OrdinalIgnoreCase) || b.BuildingType.ToString().Contains(searchKey, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
             BuildingDataGrid.ItemsSource = searchResults;
             SearchTextBox.Clear();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BuildingDataGrid.ItemsSource = null;
         }
 
         private void CustomerNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BuildingTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BuildingDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

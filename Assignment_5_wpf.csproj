@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="image.jfif" />
     <None Remove="image.jpg" />
+    <None Remove="images.jfif" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="image.jfif" />
     <Resource Include="image.jpg" />
+    <Resource Include="images.jfif" />
   </ItemGroup>
 
 </Project>
